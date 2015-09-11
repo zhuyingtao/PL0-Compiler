@@ -1,0 +1,59 @@
+0       jmp  0	8
+1	jmp  0  2
+2	int  0  3
+3	lod  1  3
+4	lit   0  10
+5	opr  0  2	// +
+6	sto  1  4
+7	opr  0  0   //exit
+
+8	int  0  5
+9	opr  0  16  //read
+10	sto  0  3   //->b
+11	lod  0  3   //b->
+12	lit   0  0  //0
+13	opr  0  9   //!=
+14	jpc  0  24
+15	cal  0  2
+16	lit   0  2
+17	lod  0  4
+18	opr  0  4
+19	opr  0  14	//write
+20	opr  0  15  //nextln
+21	opr  0  16
+22	sto  0  3 
+23	jmp  0  1
+24	opr  0  0
+------------------------------------------------------
+ 	 2	INT		0	5	--	allocate storage
+	 3	LOD		1	3	--	x
+	 4	STO		0	3	--	a
+	 5	LOD		1	4	--	y
+	 6	STO		0	4	--	b
+	 7	LIT		0	0	--	0
+	 8	STO		1	5	--	z
+	 9	LOD	0	4	--	b
+	10	LIT		0	0	--	0
+	11	OPR		0	12	--	>
+	12	JPC		0	29	--	if b <= 0 then goto 29
+	13	LOD	0	4	--	b
+	14	OPR		0	6	--	odd
+	15	JPC		0	20	--	if not(odd(b)) goto 20
+	16	LOD	1	5	--	z
+	17	LOD	0	3	--	a
+	18	OPR		0	2	--	+
+	19	STO		1	5	--	z
+	20	LIT		0	2	--	2
+	21	LOD	0	3	--	a
+	22	OPR		0	4	--	*
+	23	STO		0	3	--	a
+	24	LOD	0	4	--	b
+	25	LIT		0	2	--	2
+	26	OPR		0	2	--	/
+	27	STO		0	4	--	b
+	28	JMP		0	9	--	goto 9
+	29	OPR		0	0	--	return
+
+
+
+
